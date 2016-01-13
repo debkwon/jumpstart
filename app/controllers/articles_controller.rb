@@ -7,10 +7,12 @@ class ArticlesController < ApplicationController
 
 	def show #this show action is going to display the current article selected
 		@article = Article.find(params[:id])
+		@comment = Comment.new #creating a blank object
+		@comment.article_id = @article.id #setting the comment's article, using convention of a key being the nameOfAnObject_id
 	end
 
 	def new #sends data to create action
-		@article = Article.new #have the new method create a new blank object of the Article class
+		@article = Article.new #have the new method create a new blank object of the Article class to figure out what fields it has to pass along
 	end
 
 	def create #creates a new article instance, saves it, then displays the newly created article
