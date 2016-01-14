@@ -9,6 +9,7 @@ class ArticlesController < ApplicationController
 		@article = Article.find(params[:id])
 		@comment = Comment.new #creating a blank object
 		@comment.article_id = @article.id #setting the comment's article, using convention of a key being the nameOfAnObject_id
+		
 	end
 
 	def new #sends data to create action
