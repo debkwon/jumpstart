@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-
+	before_filter :require_login, only: [:destroy] #prevent unauthenticated users from deleteing tags
 	def index
 		@tags = Tag.all
 	end

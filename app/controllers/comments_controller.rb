@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+	before_filter :require_login, except: [:create] #lets unauthenticated users create comments
 
 	def create
 		@comment = Comment.new(comment_params)

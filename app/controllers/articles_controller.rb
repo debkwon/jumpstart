@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
 	include ArticlesHelper
 
+	before_filter :require_login, only: [:new, :create, :edit, :update, :destroy] #lets authenticated users access new, create, edit, update, and destroy acitons
 	def index #this is our index action which will display all articles. the view for this page will have links to corresponding articles, which will be shown via the show path
 		@articles = Article.all #we want to get all the articles, y'all
 	end
